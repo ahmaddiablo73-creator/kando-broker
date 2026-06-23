@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Kando Dashboard</title>
+    <style>
+        body { background: #0a0a0a; color: #00ff41; font-family: 'Segoe UI', sans-serif; margin: 0; }
+        .toolbar { background: #1a1a1a; padding: 15px; display: flex; gap: 10px; border-bottom: 2px solid #00ff41; }
+        .btn { background: #222; color: #00ff41; border: 1px solid #00ff41; padding: 8px 15px; cursor: pointer; transition: 0.3s; }
+        .btn:hover { background: #00ff41; color: #000; }
+        .main-panel { padding: 20px; }
+        #status-display { font-size: 1.2em; margin-bottom: 20px; color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="toolbar">
+        <button class="btn" onclick="executeCommand('RESTART')">راه‌اندازی مجدد هسته</button>
+        <button class="btn" onclick="executeCommand('SYSTEM_CHECK')">تستِ سلامتِ سیستم</button>
+        <button class="btn" onclick="executeCommand('CLEANUP')">پاکسازیِ لاگ‌ها</button>
+    </div>
+    
+    <div class="main-panel">
+        <h1>مرکز فرماندهیِ کاندو</h1>
+        <div id="status-display">وضعیت: <span id="status-text">آماده به کار</span></div>
+        <input type="text" id="cmdInput" placeholder="دستور خود را وارد کنید..." style="width: 300px; padding: 10px;">
+        <button class="btn" onclick="manualCommand()">ارسال فرمان</button>
+    </div>
+
+    <script>
+        function executeCommand(cmd) {
+            document.getElementById('status-text').innerText = "در حال اجرای: " + cmd;
+            // اینجا می‌توانید دستوراتِ هسته را به اسکریپت‌هایِ PowerShell متصل کنید
+        }
+        function manualCommand() {
+            let cmd = document.getElementById('cmdInput').value;
+            alert("دستور به هسته ارسال شد: " + cmd);
+        }
+    </script>
+</body>
+</html>

@@ -1,5 +1,16 @@
-System Initializing: No data processed yet. Ready for input.
 
 
----
-ÈÇ ˜ÇäÏæ ÏÇÏååÇíö ÎæÏ ÑÇ ÔİÇİÊÑ ÈÈíäíÏ æ ÑæäÏö ÑÔÏ æ ÊæÓÚå ÑÇ ÊÍæíá ÈíÑíÏ.
+# Set up a new empty dataframe for the analysis
+df = pd.DataFrame(columns=['Date', 'Project', 'Income', 'Expense', 'Category'])
+
+# Loop through each row in the original dataframe and update the empty dataframe
+for index, row in df_original.iterrows():
+    # Create a new row for the project with the date and income from the original dataframe
+    row['Date'] = row['Project'].tolist() + datetime.today().isoformat(unit='F').split('-')[-1]
+    row['Income'] = round((float(row['Total Project Budget']), 2) / 100, 2)
+    
+    # Create a new row for the project with the date and expense from the original dataframe
+    row['Expense'] = round((float(row['Project Expenses']) - float(row['Income'])) / float(row['Income']), 2)
+    
+    # Create a new row for the project with the date, category, and the new income/expense data from the original dataframe
+    row['Category'] = row['Income'].to_string

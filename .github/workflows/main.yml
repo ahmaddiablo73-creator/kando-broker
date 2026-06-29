@@ -1,0 +1,12 @@
+name: Build and Push
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build and Push
+        run: |
+          docker build -t kandobroker/kando-broker:latest .
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u kandobroker --password-stdin
+          docker push kandobroker/kando-broker:latest

@@ -49,5 +49,16 @@ while True:
         
         time.sleep(1) # وقفه ایمنی
 
+import subprocess
+
+def auto_commit_changes():
+    try:
+        subprocess.run(["git", "add", "."], check=True)
+        subprocess.run(["git", "commit", "-m", "Kando-Auto-Evolution: Updated UI/Logic based on data feedback."], check=True)
+    except Exception as e:
+        print(f"Git auto-commit failed: {e}")
+
+# این تابع در انتهای هر چرخه تکامل توسط کاندو فراخوانی می‌شود
+
 if __name__ == '__main__':
     run_ecosystem()

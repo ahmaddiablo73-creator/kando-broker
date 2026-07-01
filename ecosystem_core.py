@@ -1,64 +1,136 @@
-ï»¿import subprocess
+import subprocess
 import time
-import sys
 import os
-
+import sys
+from feedback_agent import feedback_agent
+from ai_behavior_manager import ai_manager
+from ux_evolution_manager import ux_manager
+from autognostics_core import autognostic_unit
+from config_manager import config_manager
+from policy_manager import policy_manager
+from defense_manager import defense_system
+from integrity_manager import integrity_unit
+from segmentation_engine import seg_engine
+from bot_manager import bot_manager
+from analytics_manager import process_user_activity
+from growth_manager import update_growth_metrics
+from jamstack_manager import publish_site
+from diablo_protocol import process_master_input
+from integrity_manager import integrity_unit
+from segmentation_engine import seg_engine
+from bot_manager import bot_manager
+from analytics_manager import process_user_activity
+from growth_manager import update_growth_metrics
+from jamstack_manager import publish_site
+from diablo_protocol import process_master_input
 import creative_engine
-import feedback_agent
 
-# Ø¯Ø± Ø­Ù„Ù‚Ù‡ ÛŒ Ø§ØµÙ„ÛŒÙ Ø§Ú©ÙˆØ³ÛŒØ³ØªÙ…
-def sync_data_to_creativity():
-    creative_engine.update_kando_vision()
-    # Ú©Ø§Ù†Ø¯Ùˆ ÙØ§ÛŒÙ„Ù vision.json Ø±Ø§ Ù…ÛŒâ€ŒØ®ÙˆØ§Ù†Ø¯ Ùˆ Ø§Ø³ØªØ§ÛŒÙ„Ù Ø³Ø§ÛŒØª Ø±Ø§ Ù…ØªØ­ÙˆÙ„ Ù…ÛŒâ€ŒÚ©Ù†Ø¯
-
-def kando_marketing_autonomy():
-    # Û±. Ú©Ø§Ù†Ø¯Ùˆ Ø§Ø² vision.json Ù…ÛŒâ€ŒÙÙ‡Ù…Ø¯ Ú†Ù‡ Ù¾ÛŒØ§Ù…ÛŒ ØªØ±Ù†Ø¯ Ø§Ø³Øª
-    # Û². Ø¯Ø³ØªÙˆØ±Ù Ø³Ø§Ø®ØªÙ Ø¨Ù†Ø± Ø±Ø§ Ø¨Ù‡ BannerBrain Ù…ÛŒâ€ŒØ¯Ù‡Ø¯
-    msg = "ÙØ±ÙˆØ´ ÙˆÛŒÚ˜Ù‡ Ù…Ø§Ù‡ÛŒ ØªØ§Ø²Ù‡" # Ø§ÛŒÙ† Ù¾ÛŒØ§Ù… Ø±Ø§ Ø§Ø² Ø¯Ø§Ø¯Ù‡â€ŒÙ‡Ø§ÛŒ Ø®Ø§Ù… Ù…ÛŒâ€ŒÚ¯ÛŒØ±Ø¯
-    brain.design_banner(msg)
+MAX_RETRIES = 3
 
 def run_ecosystem():
     print("--- KANDO-CORE WATCHDOG ACTIVE ---")
     app_file = 'app_web.py'
+    retry_count = 0
     
-    # Ø¯Ø± Ø­Ù„Ù‚Ù‡ ÛŒ Ø§ØµÙ„ÛŒÙ Ø§Ú©ÙˆØ³ÛŒØ³ØªÙ…
-while True:
-    # Û±. Ú©Ø§Ù†Ø¯Ùˆ Ø³Ø§ÛŒØª Ø±Ø§ ØªØºÛŒÛŒØ± Ù…ÛŒâ€ŒØ¯Ù‡Ø¯
-    # Û². ÙÛŒØ¯Ø¨Ú© Ø§ÛŒØ¬Ù†Øª Ø¨Ø§Ø²Ø¯ÛŒØ¯ Ù…ÛŒâ€ŒÚ©Ù†Ø¯
-    status = feedback_agent.simulate_user_visit()
-    
-    # Û³. Ø§Ú¯Ø± ÙÛŒØ¯Ø¨Ú© Ù…Ù†ÙÛŒ Ø¨ÙˆØ¯ØŒ Ú©Ø§Ù†Ø¯Ùˆ Ú©Ø¯ Ø±Ø§ Ø¯Ø± Ø³Ù†Ø¯Ø¨Ø§Ú©Ø³ Ø§ØµÙ„Ø§Ø­ Ù…ÛŒâ€ŒÚ©Ù†Ø¯
-    if "Needs Optimization" in status:
-        print("Kando: Optimizing based on user feedback...")
-        # Ø¯Ø³ØªÙˆØ± Ø§ØµÙ„Ø§Ø­ Ø®ÙˆØ¯Ú©Ø§Ø± Ø§Ø¬Ø±Ø§ Ù…ÛŒâ€ŒØ´ÙˆØ¯
-
     while True:
-        # Ø§Ø¬Ø±Ø§ÛŒ Ù‡Ø³ØªÙ‡ Ø¯Ø± ÛŒÚ© Ù¾Ø±ÙˆØ³Ù‡ Ù…Ø¬Ø²Ø§
-        process = subprocess.Popen([sys.executable, app_file])
+        status = feedback_agent.simulate_user_visit()
+        ai_report = ai_manager.analyze_user_behavior()()
         
-        # Ù…Ø§Ù†ÛŒØªÙˆØ± Ú©Ø±Ø¯Ù† ÙˆØ¶Ø¹ÛŒØª ÙØ§ÛŒÙ„ Ø¨Ø±Ø§ÛŒ ØªØºÛŒÛŒØ±Ø§Øª (ØªÚ©Ø§Ù…Ù„)
+        if "Needs Optimization" in status:
+            retry_count += 1
+            if retry_count >= MAX_RETRIES:
+                print("CRITICAL: Max retries reached. Shutting down.")
+                sys.exit(1)
+            print(f"Kando: Optimizing (Attempt {retry_count}/{MAX_RETRIES})...")
+            creative_engine.update_kando_vision()
+
+        # ˜ÇäÏæ åæÔö ÎæÏ ÑÇ ÈÑÇí ÊÕãíãíÑí Èå˜ÇÑ ãííÑÏ
+        if status == "Needs Optimization" and retry_count > 2:
+            print("Kando (Decision Layer): Complexity exceeded. Recruiting System Resource Manager...")
+            resource_logic = "class ResourceManager: ... (System-Hardening Logic) ..."
+            if policy_manager.evaluate_action('recruit'):
+                recruit_new_manager("resource_manager", resource_logic)
+            ux_manager.optimize_ui(status)
+            
+        if not integrity_unit.verify_structure({'D:\KANDO-CORE\ecosystem_core.py': '...' }):
+                    print('CRITICAL: Structure Breach Detected!')
+                    sys.exit(1)
+                if not integrity_unit.verify_structure({'D:\KANDO-CORE\ecosystem_core.py': '...' }):
+                    print('CRITICAL: Structure Breach Detected!')
+                    sys.exit(1)
+                process = subprocess.Popen([sys.executable, app_file])
         last_mtime = os.path.getmtime(app_file)
         
         while process.poll() is None:
-            time.sleep(1)
-            # Ø§Ú¯Ø± Ú©Ø§Ù†Ø¯Ùˆ Ø®ÙˆØ¯Ø´ Ø±Ø§ Ø¨Ø§Ø²Ù†ÙˆÛŒØ³ÛŒ Ú©Ø±Ø¯ (ØªØºÛŒÛŒØ± Ø²Ù…Ø§Ù† ÙØ§ÛŒÙ„)
-            if os.path.getmtime(app_file) != last_mtime:
-                print("--- EVOLUTION DETECTED: RESTARTING SYSTEM ---")
+            time.sleep(5)
+            if os.path.exists(app_file) and os.path.getmtime(app_file) != last_mtime:
                 process.terminate()
+                process.wait()
                 break
         
-        time.sleep(1) # ÙˆÙ‚ÙÙ‡ Ø§ÛŒÙ…Ù†ÛŒ
-
-import subprocess
-
-def auto_commit_changes():
-    try:
-        subprocess.run(["git", "add", "."], check=True)
-        subprocess.run(["git", "commit", "-m", "Kando-Auto-Evolution: Updated UI/Logic based on data feedback."], check=True)
-    except Exception as e:
-        print(f"Git auto-commit failed: {e}")
-
-# Ø§ÛŒÙ† ØªØ§Ø¨Ø¹ Ø¯Ø± Ø§Ù†ØªÙ‡Ø§ÛŒ Ù‡Ø± Ú†Ø±Ø®Ù‡ ØªÚ©Ø§Ù…Ù„ ØªÙˆØ³Ø· Ú©Ø§Ù†Ø¯Ùˆ ÙØ±Ø§Ø®ÙˆØ§Ù†ÛŒ Ù…ÛŒâ€ŒØ´ÙˆØ¯
+        time.sleep(2)
 
 if __name__ == '__main__':
     run_ecosystem()
+
+def if policy_manager.evaluate_action('recruit'):
+                recruit_new_manager(manager_name, logic_code):
+    """ ˜ÇäÏæ ÇÒ Çíä ÊÇÈÚ ÈÑÇí ÊæáÏö ÏÓÊíÇÑÇäö ÌÏíÏ ÇÓÊİÇÏå ãí˜äÏ """
+    file_path = f"D:\\KANDO-CORE\\{manager_name}.py"
+    with open(file_path, "w") as f:
+        f.write(logic_code)
+    # ÇÖÇİå ˜ÑÏä Èå åÓÊå Èå ÕæÑÊ ÏÇíäÇãí˜
+    with open("D:\\KANDO-CORE\\ecosystem_core.py", "a") as f:
+        f.write(f"\n# AUTO-RECRUITED: {manager_name}\nfrom {manager_name} import {manager_name}")
+    print(f"Kando: Manager {manager_name} recruited and integrated.")
+def autonomic_nervous_system(system_metrics):
+    # ÓíÓÊã ÚÕÈí ÎæÏãÎÊÇÑ ˜ÇäÏæ
+    if system_metrics['stress_level'] > 70:
+        # İÚÇáÓÇÒíö ÈÎÔö ÓãÇÊí˜ (ÊæÓÚå æ æÇ˜äÔ ÓÑíÚ)
+        return "SYMPATHETIC_MODE: Increasing agility and recruiting helpers."
+    else:
+        # İÚÇáÓÇÒíö ÈÎÔö ÇÑÇÓãÇÊí˜ (äåÏÇÑí æ ÈåíäåÓÇÒí)
+        return "PARASYMPATHETIC_MODE: Optimizing and cleaning resources."
+
+# ÇÌÑÇíö Çíä ÓíÓÊã ÏÑ åÑ ÑÎå:
+metrics = {'stress_level': random.randint(0, 100)} # ÔÈíåÓÇÒí æÖÚíÊö BioWeb
+print(autonomic_nervous_system(metrics))
+
+def orchestrate_kando(task):
+    # ?. ÈÎÔÈäÏíö ÏÓÊæÑö İÑãÇäÏå
+    segments = seg_engine.segment_and_dispatch(task)
+    
+    # ?. ÚÈæÑ ÇÒ İíáÊÑö ÓíÇÓÊåÇ
+    if policy_manager.evaluate_action("execute"):
+        # ?. ÇÌÑÇíö ÎæÏãÎÊÇÑö ÈÎÔåÇ
+        for seg in segments:
+            # ˜ÇäÏæ ÈÑ ÇÓÇÓ äæÚö ÊÓ˜¡ ãÇæáö ãÑÈæØå ÑÇ ÇäÊÎÇÈ ãí˜äÏ
+            print(f"ORCHESTRATOR: Integrating {seg} into system...")
+            
+    # ?. ÒÇÑÔö ÓáÇãÊö äåÇíí (ÇÊæÏíäæÓÊí˜)
+    autognostic_unit.diagnose("D:\KANDO-CORE\system_log.txt")
+
+from atomic_manager import atomic_manager
+
+def execute_atomic_operation(task_function, *args):
+    atomic_manager.start_transaction()
+    try:
+        task_function(*args)
+        atomic_manager.commit()
+    except Exception as e:
+        print(f"ATOMIC_FAILURE: {e}")
+        atomic_manager.rollback()
+from closed_loop_controller import controller
+
+def run_control_cycle():
+    # ?. ÎæÇäÏäö æÖÚíÊö İÚáí
+    current = autognostic_unit.get_system_health()
+    # ?. ãŞÇíÓå ÈÇ æÖÚíÊö ÇíÏåÂá
+    target = 1.0 
+    # ?. ÈÓÊäö ÍáŞå
+    controller.update(current, target)
+    # ÏÑíÇİÊ ÓæÇá ÇÒ æÑæÏíö ˜ÇÑÈÑ
+    user_q = inbox.read_new_query()
+    if user_q:
+        response = bot_manager.process_query(user_q)
+        inbox.send_reply(response)

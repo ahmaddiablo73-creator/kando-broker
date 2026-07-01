@@ -1,0 +1,21 @@
+﻿import os
+import time
+
+class DefenseSystem:
+    def __init__(self, protected_dir):
+        self.protected_dir = protected_dir
+        self.baseline = os.listdir(protected_dir)
+
+    def scan_for_threats(self):
+        # شناساییِ تغییراتِ غیرمجاز
+        current_files = os.listdir(self.protected_dir)
+        if len(current_files) > len(self.baseline):
+            return "THREAT_DETECTED: Unauthorized_File_Injection"
+        return "SYSTEM_SECURE"
+
+    def quarantine(self, threat):
+        print(f"DEFENSE_SYSTEM: {threat} - Initiating Lockdown.")
+        # کاندو دسترسی‌هایِ فایل را می‌بندد
+        # os.chmod(..., 0o444) 
+        
+defense_system = DefenseSystem("D:\BIO-WEB")

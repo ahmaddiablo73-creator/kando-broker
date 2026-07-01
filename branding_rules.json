@@ -1,0 +1,8 @@
+{
+  "brand_identity": {
+    "logo_path": "assets/logo.png",
+    "primary_color": "#0984E3", 
+    "font_family": "Roboto, sans-serif",
+    "immutable_elements": ["header", "logo", "footer_contact"]
+  }
+}

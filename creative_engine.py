@@ -21,3 +21,11 @@ class CreativeEngine:
             json.dump({"focus": trend, "creativity_level": "high"}, f)
 
 # کاندو هر زمان داده جدیدی در پوشه ذخیره شد، این را اجرا می‌کند
+def safe_write(filename, content):
+    lock_file = filename + ".lock"
+    if not os.path.exists(lock_file):
+        with open(lock_file, "w") as f: f.write("LOCKED")
+        with open(filename, "w") as f: f.write(content)
+        os.remove(lock_file)
+    else:
+        print("Pipeline Busy: Waiting for data transfer to finish...")

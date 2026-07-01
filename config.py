@@ -1,0 +1,1 @@
+PROJECT_ROOT = r'C:\Users\ParsRayaneh\Documents\KANDO_BIO_WEB'

@@ -1,0 +1,51 @@
+0 verbose cli D:\node.exe D:\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.13.0
+2 info using node@v24.17.0
+3 silly config load:file:D:\node_modules\npm\npmrc
+4 silly config load:file:c:\Users\ParsRayaneh\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\.npmrc
+5 silly config load:file:C:\Users\ParsRayaneh\.npmrc
+6 silly config load:file:D:\KANDO-CORE\etc\npmrc
+7 verbose title npm install @hint/configuration-development@latest hint@latest typescript@latest
+8 verbose argv "install" "@hint/configuration-development@latest" "hint@latest" "typescript@latest" "--save-dev" "--loglevel" "verbose"
+9 verbose logfile logs-max:10 dir:D:\KANDO-CORE\.npm-cache\_logs\2026-06-30T09_54_54_910Z-
+10 verbose logfile D:\KANDO-CORE\.npm-cache\_logs\2026-06-30T09_54_54_910Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+13 silly packumentCache corgi:https://registry.npmjs.org/@hint%2fconfiguration-development cache-miss
+14 silly packumentCache corgi:https://registry.npmjs.org/hint cache-miss
+15 silly packumentCache corgi:https://registry.npmjs.org/typescript cache-miss
+16 http fetch GET https://registry.npmjs.org/hint attempt 1 failed with ECONNRESET
+17 http fetch GET https://registry.npmjs.org/@hint%2fconfiguration-development attempt 1 failed with ECONNRESET
+18 http fetch GET https://registry.npmjs.org/npm attempt 1 failed with ECONNRESET
+19 http fetch GET https://registry.npmjs.org/typescript attempt 1 failed with ECONNRESET
+20 http fetch GET https://registry.npmjs.org/hint attempt 2 failed with ECONNRESET
+21 http fetch GET https://registry.npmjs.org/@hint%2fconfiguration-development attempt 2 failed with ECONNRESET
+22 http fetch GET https://registry.npmjs.org/typescript attempt 2 failed with ECONNRESET
+23 http fetch GET https://registry.npmjs.org/npm attempt 2 failed with ECONNRESET
+24 http fetch GET https://registry.npmjs.org/hint attempt 3 failed with ECONNRESET
+25 verbose type system
+26 verbose stack FetchError: request to https://registry.npmjs.org/hint failed, reason: read ECONNRESET
+26 verbose stack     at ClientRequest.<anonymous> (D:\node_modules\npm\node_modules\minipass-fetch\lib\index.js:130:14)
+26 verbose stack     at ClientRequest.emit (node:events:509:28)
+26 verbose stack     at emitErrorEvent (node:_http_client:109:11)
+26 verbose stack     at _destroy (node:_http_client:993:9)
+26 verbose stack     at onSocketNT (node:_http_client:1014:5)
+26 verbose stack     at process.processTicksAndRejections (node:internal/process/task_queues:91:21)
+27 error code ECONNRESET
+28 error syscall read
+29 error errno ECONNRESET
+30 error network request to https://registry.npmjs.org/hint failed, reason: read ECONNRESET
+31 error network This is a problem related to network connectivity.
+31 error network In most cases you are behind a proxy or have bad network settings.
+31 error network
+31 error network If you are behind a proxy, please make sure that the 'proxy' config is set properly.  See: 'npm help config'
+32 silly unfinished npm timer reify 1782813297170
+33 silly unfinished npm timer reify:loadTrees 1782813297175
+34 silly unfinished npm timer idealTree:userRequests 1782813297194
+35 verbose cwd c:\Users\ParsRayaneh\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools
+36 verbose os Windows_NT 10.0.19045
+37 verbose node v24.17.0
+38 verbose npm  v11.13.0
+39 verbose exit 1
+40 verbose code 1
+41 error A complete log of this run can be found in: D:\KANDO-CORE\.npm-cache\_logs\2026-06-30T09_54_54_910Z-debug-0.log

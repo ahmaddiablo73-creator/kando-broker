@@ -1,18 +1,17 @@
 ﻿import json
-import os
 
-class ConfigManager:
-    def __init__(self, config_path="D:\KANDO-CORE\config.json"):
-        self.config_path = config_path
-        if not os.path.exists(config_path):
-            self.save_config({"status": "initialized", "mode": "autonomous", "version": "1.0"})
+def update_mission(mission_data):
+    with open('mission_config.json', 'w') as f:
+        json.dump(mission_data, f, indent=4)
+    print("Mission configuration updated successfully.")
 
-    def save_config(self, data):
-        with open(self.config_path, "w") as f:
-            json.dump(data, f, indent=4)
+# تنظیمات پیش‌فرض برای تست
+default_mission = {
+    "task_id": "FISH_MARKET_ANALYSIS_001",
+    "target": "بازار ماهی تهران",
+    "objective": "تحلیل روند تقاضا برای هفته آینده",
+    "status": "READY"
+}
 
-    def get_config(self):
-        with open(self.config_path, "r") as f:
-            return json.load(f)
-
-config_manager = ConfigManager()
+if __name__ == "__main__":
+    update_mission(default_mission)

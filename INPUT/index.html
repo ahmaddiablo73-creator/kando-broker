@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>KANDO-CORE COMMAND CENTER</title>
+    <style>
+        body { background: #0a0a0a; color: #00ff00; font-family: 'Courier New', monospace; padding: 20px; }
+        #terminal { border: 1px solid #00ff00; padding: 15px; min-height: 200px; }
+    </style>
+</head>
+<body>
+    <h1>KANDO-CORE SYSTEM</h1>
+    <div id="terminal">Initializing...</div>
+
+    <script>
+        // تعریف ماژول برای دریافت خروجی از هسته C
+        var Module = {
+            onRuntimeInitialized: function() {
+                // صدا زدن تابع هسته C
+                Module._generateBioContent();
+            }
+        };
+    </script>
+    <script src="sedaram.js"></script>
+</body>
+</html>
